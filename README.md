@@ -10,7 +10,7 @@ Avec un fichier jupyter `index.ipynb`, on charge le modèle pré-entrainé `mon_
 
 ## Tutorial étape par étape
 - **Étape 1 - Augmenter la mémoire SWAP de la jetson nano à 4GB :** 
-
+Ouvrez le terminal et tapez les commandes suivantes:
 ```shell
 git clone https://github.com/JetsonHacksNano/resizeSwapMemory
 cd resizeSwapMemory
@@ -34,14 +34,21 @@ Ouvrez le fichier `/etc/docker/daemon.json` et ajouter `"default-runtime": "nvid
 ```
 > **Remarque:** Veuillez redémarrer encore une fois votre carte après cette étape. 
 
-- **Étape 3 - Installation**
+- **Étape 3 - Créer l'image**
+
+Ouvrez le terminal et tapez les commandes suivantes:
 ```shell
 #cloner mon dépot
 git clone https://github.com/TAIBIAchraf/suivi_boxeur
 #Ouvrez le dossier 
 cd suivi_boxeur
-./setSwapMemorySize -g 4
+#Construire le docker image
+docker build -t Boxing_project .
 ```
+> Après avoir créé notre image, nous devons maintenant procéder à la construction du conteneur.
+
+- **Étape 4 - Créer le conteneur**
+sur votre terminal vous tapez les commandes suivantes :
 
 
 
