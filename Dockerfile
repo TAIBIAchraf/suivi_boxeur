@@ -2,6 +2,9 @@
 ARG BASE_IMAGE=nvcr.io/nvidia/dli/dli-nano-ai:v2.0.2-r32.7.1
 FROM ${BASE_IMAGE}
 
+# Déinstaller jetcam
+RUN pip3 uninstall jetcam
+
 # Cloner mon projet
 RUN git clone https://github.com/TAIBIAchraf/suivi_boxeur.git
 
