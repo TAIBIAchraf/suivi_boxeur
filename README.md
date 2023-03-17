@@ -34,7 +34,7 @@ Ouvrez le fichier `/etc/docker/daemon.json` et ajouter `"default-runtime": "nvid
 ```
 > **Remarque:** Veuillez redémarrer encore une fois votre carte après cette étape. 
 
-- **Étape 3 - Créer l'image**
+- **Étape 3 - Créer l'image Docker**
 
 Ouvrez le terminal et tapez les commandes suivantes:
 ```shell
@@ -42,16 +42,39 @@ Ouvrez le terminal et tapez les commandes suivantes:
 git clone https://github.com/TAIBIAchraf/suivi_boxeur
 #Ouvrez le dossier 
 cd suivi_boxeur
-#Construire le docker image
+#Construire l'image Docker
 docker build -t Boxing_project .
 ```
 > Après avoir créé notre image, nous devons maintenant procéder à la construction du conteneur.
 
-- **Étape 4 - Créer le conteneur**
-sur votre terminal vous tapez les commandes suivantes :
+- **Étape 4 - Créer et lancer le conteneur**
 
+Ouvrez le terminal et tapez les commandes suivantes: 
+```shell
+sudo docker run --runtime nvidia -it --network host --name Boxing_project \
+# (Optionnel) crée un lien entre un dossier local ~/mon_dossier et le dossier /nvdli-nano/data dans le conteneur
+#--volume ~/mon_dossier:/nvdli-nano/data \
+# Permettre le conteneur d'accéder à la caméra de la jetson nano
+--volume /tmp/argus_socket:/tmp/argus_socket \
+# Exposer le périphérique `/dev/video0` à l'intérieur du conteneur
+--device /dev/video0 \
+# Le nom et la version de l'image Docker construite
+Boxing_project:latest
+```
 
+- **Étape 5 - Lancer le DEMO**
+ 
+ Sur votre terminal vous allez au dossier `suivi_boxeur` vous lancer le `script.sh` par la commande suivante `./script.sh`. Vous ouvrez votre navigateur, vous allez à l'adresse suivante `http://localhost:8888`, vous saisissez le mot de passe suivant : `dlinano`. Vous lancez le DEMO dans le répértoire `/trt_pose/tasks/human_pose/index.ipynb`
 
+ ## Références
+ 
+[Machine Learning Containers for Jetson and JetPack](https://github.com/dusty-nv/jetson-containers)
+
+[DLI Getting Started with AI on Jetson Nano](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/dli/containers/dli-nano-ai)
+
+[Real-time pose estimation on NVIDIA Jetson (trt_pose)](https://github.com/NVIDIA-AI-IOT/trt_pose)
+
+[Resize the size of swap memory on the Jetson Nano](https://github.com/JetsonHacksNano/resizeSwapMemory)
 
 
 
