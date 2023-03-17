@@ -6,7 +6,7 @@ Ce projet est la première étape vers un coach virtuel de la boxe anglaise.il s
 - **matériels requis** : Jetson Nano 4gb (minimum) + son module de wifi + camera CSI.
 ## Comment cela fonctionne-t-il ?
 Avec un fichier jupyter `index.ipynb`, on charge le modèle pré-entrainé `mon_modele.pth` pour l'estimation de pose --> on crée deux objets instances à partir de `Mouvements()` et `Manipulation()` --> on extrait les coordonnées des points clés à l'aide de la fonction `get_keypoints`--> on traite ces coordonnées en utilisant plusieurs fonctions --> on envoie le bilan à l'aide de la fonction `send()`.
-> **Remarque:** pour plus d'information sur les fonctions utilisées, veuillez consulter les fichiers `Manipulation.py`,`Mouvements.py` et `index.ipynb`.
+> **Remarque:** pour plus d'informations sur les fonctions utilisées, veuillez consulter les fichiers `Manipulation.py`,`Mouvements.py` et `index.ipynb`.
 
 ## Tutorial étape par étape
 - **Étape 1 - Augmenter la mémoire SWAP de la jetson nano à 4GB :** 
