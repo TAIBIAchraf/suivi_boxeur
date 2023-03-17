@@ -1,4 +1,4 @@
-# Choisir l'image de base à laquelle nous allons rajouter trt_pose
+# Choisir l'image de base à laquelle nous allons rajouter les biblio
 ARG BASE_IMAGE=nvcr.io/nvidia/dli/dli-nano-ai:v2.0.2-r32.7.1
 FROM ${BASE_IMAGE}
 
