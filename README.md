@@ -66,6 +66,8 @@ Boxing_project:latest
  
  Sur votre terminal vous allez au dossier `suivi_boxeur` vous lancer le `script.sh` par la commande suivante `./script.sh`. Vous ouvrez votre navigateur, vous allez à l'adresse suivante `http://localhost:8888`, vous saisissez le mot de passe suivant : `dlinano`. Vous lancez le DEMO dans le répértoire `/trt_pose/tasks/human_pose/index.ipynb`
 
+> **Remarque:** Pour recevoir le bilan de vos mouvements sur votre smartphone veuillez installer l'application [mynotifier](https://www.mynotifier.app),puis récupérer votre clé et l'implémenter dans `Manipulation.py`. 
+
  ## Références
  
 [Machine Learning Containers for Jetson and JetPack](https://github.com/dusty-nv/jetson-containers)
